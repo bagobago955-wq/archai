@@ -1,0 +1,144 @@
+title: "MANUAL"
+page_title: "Manual"
+sections:
+  introduction:
+    title: "Pendahuluan"
+    subsections:
+      introduction:
+        title: "Pendahuluan"
+        text: |
+          ARKON CPU Visual Simulator (dikembangkan oleh Kelompok 10) memungkinkan Anda memasukkan dan memvisualisasikan eksekusi kode bahasa assembly secara interaktif.
+          Instruksi dan data numerik dapat dimasukkan dengan mudah melalui Editor Kode (Code Canvas) yang terintegrasi, atau dimodifikasi secara langsung di dalam sel memori RAM. Anda dapat mendefinisikan
+          "label" (pengidentifikasi yang digunakan sebagai pengganti alamat memori): label ini kemudian dapat digunakan sebagai
+          parameter dalam instruksi lompat, atau sebagai pengidentifikasi variabel. Kapan saja, dimungkinkan untuk beralih
+          antara representasi simbolis dan biner. Dimungkinkan juga untuk memodifikasi langsung Program
+          Counter, Akumulator, atau flag Negatif dan Nol dari Status Word. Program dapat dieksekusi:
+          secara otomatis (CPU terus mengeksekusi instruksi hingga eksekusi dijeda atau program berakhir),
+          satu pernyataan pada satu waktu, atau satu langkah mikro pada satu waktu. Simulator Kelompok 10 ini juga dilengkapi 
+          fitur suara sintetis (teks-ke-suara) yang menjelaskan langkah-langkah mikro yang sedang dieksekusi oleh CPU.
+  instruction_set:
+    title: "Set Instruksi"
+    subsections:
+      instruction_set:
+        title: "Set Instruksi"
+      instruction_structure:
+        title: "Struktur instruksi"
+        opcode_desc: "Menentukan operasi yang akan dieksekusi"
+        immediate_flag_desc: "Menentukan apakah operan bersifat langsung (immediate) atau alamat (direct)"
+        operand_desc: "Nilai yang dioperasikan oleh instruksi"
+      addressing_modes:
+        title: "Mode pengalamatan"
+        subsections:
+          immediate:
+            title: "Langsung (Immediate)"
+            paragraphs:
+              - 'Operan langsung adalah operan yang didahului oleh simbol "#".'
+              - "Nilai operan langsung harus berada dalam rentang 8-bit (127 hingga -128)."
+              - "Jika operan adalah label, alamat yang terkait dengan label tersebut akan digunakan sebagai operan."
+          direct:
+            title: "Alamat (Direct)"
+            paragraphs:
+              - 'Operan tanpa simbol "#" adalah operan alamat.'
+              - "Operan alamat merepresentasikan alamat tempat nilai operan disimpan."
+              - "Operan alamat yang valid harus berupa alamat yang valid, yaitu nilai genap antara 0 dan 254 atau label yang valid."
+  keyboard_shortcuts:
+    title: "Pintasan keyboard"
+    subsections:
+      keyboard_shortcuts:
+        title: "Pintasan keyboard"
+  code_files:
+    title: "File kode"
+    subsections:
+      code_files:
+        title: "File kode"
+        paragraphs:
+          - 'ARKON CPUVS (Karya Kelompok 10) dapat memuat atau menyimpan program dari/ke file teks biasa yang memiliki ekstensi ".cpuvs".'
+          - 'Catatan Ekstra: Ketika Anda memuat file dari disk, seluruh isi kode tersebut akan secara ajaib muncul di dalam Editor Kode (Code Canvas) sekaligus disuntikkan ke dalam RAM!'
+      new_lines:
+        title: "Baris baru"
+        paragraphs:
+          - "Dalam file .cpuvs, setiap baris dapat berisi satu instruksi."
+          - "Baris yang tidak berisi instruksi valid hanya boleh berisi komentar."
+          - "Baris kosong diizinkan dan akan diabaikan."
+          - "Isi setiap baris akan disimpan di alamat memori mulai dari alamat 0."
+          - "Baris kosong atau baris yang hanya berisi komentar akan diabaikan."
+      syntax:
+        title: "Sintaks"
+        paragraphs:
+          - "Baris yang valid memiliki format berikut: 'LABEL: INSTRUKSI' (tanpa tanda kutip tunggal)."
+          - 'LABEL: Bidang ini bersifat opsional. Jika bidang ini dihilangkan, simbol ":" juga harus dihilangkan.'
+          - "INSTRUKSI: Bidang ini merepresentasikan isi dari sebuah alamat. Sintaksnya identik dengan yang digunakan untuk memasukkan instruksi langsung ke dalam RAM dan semua yang dapat ditulis ke dalam sel RAM dapat ditulis di sini (kecuali input biner)."
+          - "Spasi dan karakter tab di awal dan akhir akan diabaikan."
+          - "Jika file yang Anda coba muat ke ARKON CPUVS mengandung kesalahan, pesan kesalahan dengan detail kesalahan akan ditampilkan di tepi atas simulator."
+          - 'Komentar didefinisikan sebagai semua yang mengikuti simbol ";" hingga baris baru.'
+  ui:
+    title: "Antarmuka pengguna"
+  examples:
+    title: "Contoh"
+    subsections:
+      if_then_else:
+        title: "Contoh IF-THEN-ELSE tingkat tinggi dan terjemahannya"
+      do_while:
+        title: "Contoh WHILE-DO tingkat tinggi dan terjemahannya"
+opcodes_table:
+  sections_titles:
+    control_flow: "Alur Kontrol"
+    data_flow: "Alur Data"
+    arithmetic_logic: "Aritmatika-Logika"
+  descriptions:
+    NOP: "Tidak Ada Operasi, lanjut ke instruksi berikutnya"
+    HLT: "Hentikan eksekusi"
+    JMP: "Lompat tanpa syarat ke instruksi di lokasi X"
+    JZ: "Lompat jika Nol: jika Flag Z diset, lompat ke instruksi nomor X, jika tidak lanjut ke instruksi berikutnya"
+    JNZ: "Lompat jika Tidak Nol: jika Flag Z tidak diset, lompat ke instruksi nomor X, jika tidak lanjut ke instruksi berikutnya"
+    JN: "Lompat jika Negatif: jika Flag N diset, lompat ke instruksi nomor X, jika tidak lanjut ke instruksi berikutnya"
+    JNN: "Lompat jika Tidak Negatif: jika Flag N tidak diset, lompat ke instruksi nomor X, jika tidak lanjut ke instruksi berikutnya"
+    LOD: "Muat isi Lokasi Memori X (atau angka #X) ke dalam Akumulator"
+    STO: "Simpan nilai Akumulator ke Lokasi Memori X"
+    ADD: "Tambahkan isi Lokasi Memori X (atau angka #X) ke Akumulator. Flag diperbarui"
+    SUB: "Kurangkan isi Lokasi Memori X (atau angka #X) dari Akumulator. Flag diperbarui"
+    MUL: "Kalikan Akumulator dengan isi Lokasi Memori X (atau angka #X). Flag diperbarui"
+    DIV: "Bagi Akumulator dengan isi Lokasi Memori X (atau angka #X). Flag diperbarui"
+    AND: "AND bitwise antara Akumulator dan isi Lokasi Memori X (atau angka #X). Flag diperbarui"
+    CMP: "Kurangkan isi Lokasi Memori X (atau angka #X) dari Akumulator. Flag diperbarui, tetapi isi Akumulator tidak dimodifikasi"
+    NOT: "NOT bitwise dari isi Lokasi Memori X (atau angka #X). Hasilnya disimpan dalam Akumulator"
+shortcuts_table:
+  ram_editing:
+    title: "Pengeditan RAM"
+    headers:
+      keys: "Tombol"
+      condition: "Kondisi"
+      description: "Deskripsi"
+    shortcuts:
+      - keys: "ENTER"
+        condition: "Tidak ada sel/label yang dipilih"
+        description: "Pilih sel pertama yang terlihat."
+      - keys: "ENTER"
+        condition: "Sebuah sel/label dipilih"
+        description: "Terapkan isi sel yang dipilih ke RAM."
+      - keys: "PANAH ATAS"
+        condition: "Sebuah sel/label dipilih"
+        description: "Pilih alamat sebelumnya."
+      - keys: "PANAH BAWAH"
+        condition: "Sebuah sel/label dipilih"
+        description: "Pilih alamat berikutnya."
+      - keys: "SHIFT + PANAH ATAS"
+        condition: "Sebuah sel/label dipilih"
+        description: |
+          Semua sel di atas alamat yang dipilih (termasuk) digeser ke atas satu posisi.
+          Isi alamat pertama hilang dan "NOP" dimasukkan di alamat yang dipilih.
+      - keys: "SHIFT + PANAH BAWAH"
+        condition: "Sebuah sel/label dipilih"
+        description: |
+          Semua sel di atas alamat yang dipilih (tidak termasuk) digeser ke bawah satu posisi. Isi alamat yang dipilih
+          hilang dan "NOP" dimasukkan di alamat pertama.
+      - keys: "CTRL + PANAH ATAS"
+        condition: "Sebuah sel/label dipilih"
+        description: |
+          Semua sel di bawah alamat yang dipilih (tidak termasuk) digeser ke atas satu posisi. Isi alamat yang dipilih
+          hilang dan "NOP" dimasukkan di alamat terakhir.
+      - keys: "CTRL + PANAH BAWAH"
+        condition: "Sebuah sel/label dipilih"
+        description: |
+          Semua sel di bawah alamat yang dipilih (termasuk) digeser ke bawah satu posisi. Isi alamat
+          terakhir hilang dan "NOP" dimasukkan di alamat yang dipilih.

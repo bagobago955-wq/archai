@@ -1,0 +1,274 @@
+displayName: "Bahasa Indonesia"
+steps:
+  pc_to_ram:
+    text: "Isi Program Counter ditempatkan pada bus alamat"
+    tts: "Isi Program Counter ditempatkan pada bus alamat"
+  ram_to_ir:
+    text: "Instruksi dimuat ke dalam Register Instruksi"
+    tts: "Instruksi dimuat ke dalam Register Instruksi"
+  ir_to_cu:
+    text: "Opcode didekodekan"
+    tts: "Opcode didekodekan"
+  cu_to_mux:
+    text: "Unit Kontrol mengatur Multiplekser sesuai mode pengalamatan langsung atau segera dari operan"
+    tts: "Unit Kontrol mengatur Multiplekser sesuai mode pengalamatan langsung atau segera dari operan"
+  cu_to_alu:
+    text: "Unit Kontrol mengatur operasi Unit Aritmatika Logika"
+    tts: "Unit Kontrol mengatur operasi Unit Aritmatika Logika"
+  acc_to_alu1:
+    text: "Isi Akumulator dimuat ke dalam Unit Aritmatika Logika"
+    tts: "Isi Akumulator dimuat ke dalam Unit Aritmatika Logika"
+  pc_increment:
+    text: "Program Counter diinkrementasi"
+    tts: "Program Counter diinkrementasi"
+  ir_to_alu2:
+    text: "Operan dimuat dari Register Instruksi"
+    tts: "Operan dimuat dari Register Instruksi"
+  ir_to_ram:
+    text: "Alamat operan ditempatkan pada Bus Alamat"
+    tts: "Alamat operan ditempatkan pada Bus Alamat"
+  memory_read:
+    text: "Operasi Baca Memori disinyalkan pada Bus Kontrol"
+    tts: "Operasi Baca Memori disinyalkan pada Bus Kontrol"
+  memory_fetch:
+    text: "Operasi Fetch disinyalkan pada Bus Kontrol"
+    tts: "Operasi Fetch disinyalkan pada Bus Kontrol"
+  memory_write:
+    text: "Operasi Tulis Memori disinyalkan pada Bus Kontrol"
+    tts: "Operasi Tulis Memori disinyalkan pada Bus Kontrol"
+  ram_to_alu2:
+    text: "Operan dimuat dari RAM"
+    tts: "Operan dimuat dari RAM"
+  ir_to_pc:
+    text: "Program Counter diatur ke nilai operan dalam Register Instruksi"
+    tts: "Program Counter diatur ke nilai operan dalam Register Instruksi"
+  execute:
+    text: "Operasi dieksekusi"
+    tts: "Operasi dieksekusi"
+  alu_to_sw:
+    text: "Status Word diperbarui"
+    tts: "Status Word diperbarui"
+  acc_to_ram:
+    text: "Isi Akumulator ditempatkan pada Bus Data"
+    tts: "Isi Akumulator ditempatkan pada Bus Data"
+  acc_stored_to_ram:
+    text: "Isi Akumulator ditulis ke dalam RAM"
+    tts: "Isi Akumulator ditulis ke dalam RAM"
+cpu:
+  ir:
+    invalid_instruction: "INSTRUKSI TIDAK VALID"
+ram:
+  buttons:
+    clear:
+      text: "HAPUS"
+      title: "Hapus"
+    undo:
+      title: "Urungkan"
+    redo:
+      title: "Ulangi"
+menu:
+  buttons:
+    settings:
+      text: "Pengaturan"
+      title: "Buka pengaturan"
+    save:
+      text: "Simpan"
+      title: "Simpan program"
+      save_to_file:
+        text: "Simpan ke file"
+        title: "Simpan ke file"
+      save_to_url:
+        text: "Simpan sebagai URL"
+        title: "Simpan sebagai URL"
+    load:
+      text: "Muat"
+      title: "Muat program"
+    examples:
+      text: "Contoh"
+      title: "Muat contoh"
+      examples:
+        if_then_else:
+          text: "If then else"
+          title: "If then else"
+        while_do:
+          text: "While do"
+          title: "While do"
+        array_sum:
+          text: "Jumlah array"
+          title: "Jumlah array"
+    manual:
+      text: "Manual"
+      title: "Buka manual"
+    copyright:
+      text: "Hak Cipta"
+      title: "Pemberitahuan hak cipta"
+  overlays:
+    save_to_file:
+      title: "Simpan program"
+      buttons:
+        save:
+          text: "Simpan"
+          title: "Simpan"
+        cancel:
+          text: "Batal"
+          title: "Batal"
+      inputs:
+        filename:
+          placeholder: "Nama file"
+    save_to_url:
+      title: "Ini adalah URL Anda"
+      copied: "Disalin"
+      buttons:
+        copy_to_clipboard:
+          text: "Salin ke clipboard"
+          title: "Salin ke clipboard"
+    copyright:
+      subsections:
+        copyright_notice:
+          title: "Pemberitahuan hak cipta"
+          paragraphs:
+            - "Hak Cipta 2026 Kelompok 10: Muhammad Nouval Ar-Rizqy, Zulfia Tirta Irawan, Fairuz Alfian Priasahasika"
+            - "Simulator ini hanya dapat digunakan untuk kegiatan non-komersial dan pendidikan"
+        credits:
+          title: "Kredit"
+          paragraphs:
+            - |
+              Aplikasi ini merupakan hasil pengembangan CPU Visual Simulator yang dikerjakan oleh Kelompok 10 (Muhammad Nouval Ar-Rizqy, Zulfia Tirta Irawan, Fairuz Alfian Priasahasika). Proyek ini disusun sebagai pemenuhan tugas mata kuliah Arsitektur dan Organisasi Komputer di bawah bimbingan Bapak Jumanto, S.Kom., M.Cs.
+controls:
+  labels:
+    execution: "Program"
+    step: "Langkah mikro"
+    instruction: "Instruksi"
+    speed: "Kecepatan"
+  buttons:
+    reset:
+      title: "Reset"
+    play_program:
+      title: "Jalankan"
+    pause_program:
+      title: "Jeda"
+    fast_program:
+      title: "Eksekusi cepat"
+    play_step:
+      title: "Jalankan langkah mikro"
+    fast_step:
+      title: "Eksekusi cepat"
+    play_instruction:
+      title: "Jalankan instruksi"
+    fast_instruction:
+      title: "Eksekusi cepat"
+  sliders:
+    speed:
+      title: "Kecepatan"
+  checkboxes:
+    binary:
+      text: "Biner"
+    animations:
+      text: "Animasi"
+message_feed:
+  buttons:
+    export_logs:
+      text: "Ekspor log error"
+    close_message:
+      title: "Tutup pesan"
+settings:
+  title: "Pengaturan"
+  sections_titles:
+    general: "Umum"
+    tts: "Teks ke Suara"
+    busses: "Bus"
+  language:
+    title: "Bahasa"
+    description: "Bahasa yang digunakan oleh aplikasi"
+  dispaly_components_labels:
+    title: "Tampilkan label komponen"
+    description: "Mengaktifkan/menonaktifkan label seperti 'RAM' 'IR' 'ALU' dll."
+  dispaly_busses_labels:
+    title: "Tampilkan label bus"
+    description: "Mengaktifkan/menonaktifkan label bus data, bus alamat, dan bus kontrol"
+  display_step_text:
+    title: "Tampilkan teks langkah mikro"
+    description: "Mengaktifkan/menonaktifkan kotak yang menampilkan deskripsi teks dari langkah mikro yang sedang dieksekusi"
+  reset_all:
+    title: "Reset semua pengaturan"
+    description: "Reset semua pengaturan ke nilai default"
+    button:
+      text: "Reset"
+  tts_enabled:
+    title: "Teks ke Suara"
+    description: "Mengaktifkan/menonaktifkan suara sintetis yang membacakan penjelasan langkah yang sedang dieksekusi"
+  tts_speed:
+    title: "Kecepatan Teks ke Suara"
+    description: "Kecepatan suara teks ke suara"
+  tts_voice:
+    title: "Suara Teks ke Suara"
+    description: "Suara yang digunakan oleh teks ke suara"
+  databus_ext_color:
+    title: "Warna bus data eksternal"
+    description: "Warna bus data eksternal"
+  databus_int_color:
+    title: "Warna bus data internal"
+    description: "Warna bus data internal"
+  databus_ext_anim_color:
+    title: "Warna animasi bus data eksternal"
+    description: "Warna animasi bus data eksternal"
+  databus_int_anim_color:
+    title: "Warna animasi bus data internal"
+    description: "Warna animasi bus data internal"
+  addressbus_ext_color:
+    title: "Warna bus alamat eksternal"
+    description: "Warna bus alamat eksternal"
+  addressbus_int_color:
+    title: "Warna bus alamat internal"
+    description: "Warna bus alamat internal"
+  addressbus_ext_anim_color:
+    title: "Warna animasi bus alamat eksternal"
+    description: "Warna animasi bus alamat eksternal"
+  addressbus_int_anim_color:
+    title: "Warna animasi bus alamat internal"
+    description: "Warna animasi bus alamat internal"
+  controlbus_ext_color:
+    title: "Warna bus kontrol eksternal"
+    description: "Warna bus kontrol eksternal"
+  controlbus_int_color:
+    title: "Warna bus kontrol internal"
+    description: "Warna bus kontrol internal"
+  controlbus_ext_anim_color:
+    title: "Warna animasi bus kontrol eksternal"
+    description: "Warna animasi bus kontrol eksternal"
+  controlbus_int_anim_color:
+    title: "Warna animasi bus kontrol internal"
+    description: "Warna animasi bus kontrol internal"
+errors:
+  unchecked: "Kesalahan tidak terduga"
+  program_parsing:
+    invalid_instruction: "Baris {0} - Instruksi tidak valid - {1}"
+    invalid_label: "Baris {0} - Label tidak valid - {1}"
+    duplicated_label: "Baris {0} - Label duplikat - '{1}'"
+  instruction_parsing:
+    invalid_binary_input: "Input biner tidak valid"
+    invalid_opcode: "'{0}' bukan opcode yang valid"
+    invalid_operand: "'{0}' bukan operan yang valid"
+    operand_not_allowed: "Opcode '{0}' tidak menerima operan"
+    operand_required: "Opcode '{0}' memerlukan operan"
+    unknown_label: "Label '{0}' tidak didefinisikan"
+    immediate_operand_not_allowed: "Opcode '{0}' tidak mengizinkan operan langsung"
+    invalid_immediate_operand: "Operan '{0}' bukan bilangan bulat bertanda 8-bit yang valid"
+    invalid_direct_operand: "Operan '{0}' bukan alamat yang valid"
+    invalid_data: "Nilai '{0}' bukan bilangan bulat bertanda 16-bit yang valid"
+  label_parsing:
+    invalid_character: "Karakter '{0}' tidak diizinkan"
+    label_too_short: "Panjang minimum: {0}"
+    label_too_long: "Panjang maksimum: {0}"
+  symbol_table:
+    label_already_exists: "Label sudah ada"
+    invalid_label: "Label tidak valid"
+  user_input:
+    invalid_file_name: "Nama file tidak valid"
+    invalid_pc_value: "Alamat tidak valid"
+    invalid_acc_value: "Nilai tidak valid"
+  execution:
+    invalid_instruction: "Instruksi tidak valid ditemukan dalam Register Instruksi"
+    division_by_zero: "Pembagian dengan nol"
+  generic:
+    fetch_error: 'Terjadi kesalahan saat mencoba mengambil sumber daya "{0}"'
